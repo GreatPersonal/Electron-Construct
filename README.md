@@ -2,7 +2,7 @@
 
 ---
 
-# [关于 Electron](https://electronjs.org/docs/tutorial/about#%E5%85%B3%E4%BA%8E-electron) {#关于-electron}
+# [关于 Electron](https://electronjs.org/docs/tutorial/about#关于-electron) {#关于-electron}
 
 * [Electron](https://electronjs.org/)是由Github开发，用HTML，CSS和JavaScript来构建跨平台桌面应用程序的一个开源库。 Electron通过将[Chromium](https://www.chromium.org/Home)和[Node.js](https://nodejs.org/)合并到同一个运行时环境中，并将其打包为Mac，Windows和Linux系统下的应用来实现这一目的。
 
@@ -12,15 +12,13 @@
 
   继续往下阅读可以了解Electron的贡献者们和已经发布的版本，或者直接阅读官网的[快速开始指引](https://electronjs.org/docs/tutorial/quick-start)来开始用Electron来构建应用。
 
-* ## [核心理念](https://electronjs.org/docs/tutorial/about#%E6%A0%B8%E5%BF%83%E7%90%86%E5%BF%B5) {#核心理念}
+## [核心理念](https://electronjs.org/docs/tutorial/about#核心理念) {#核心理念}
 
-  为了保持Electron的小 \(文件体积\) 和可持续性 \(依赖和API的扩展\) ，Electron限制了使用的核心项目的范围。
+* 为了保持Electron的小 \(文件体积\) 和可持续性 \(依赖和API的扩展\) ，Electron限制了使用的核心项目的范围。比如Electron只用了Chromium的渲染库而不是全部。 这使得容易升级Chromium，但也意味着Electron缺少Google Chrome里的一些浏览器特性。
 
-  比如Electron只用了Chromium的渲染库而不是全部。 这使得容易升级Chromium，但也意味着Electron缺少Google Chrome里的一些浏览器特性。
+* Electron所添加的的新特性应主要用于原生API。 如果一个特性能够成为一个Node.js模块，那它就应该成为。 参见[社区构建的Electron工具](https://electronjs.org/community)。
 
-  Electron所添加的的新特性应主要用于原生API。 如果一个特性能够成为一个Node.js模块，那它就应该成为。 参见[社区构建的Electron工具](https://electronjs.org/community)。
-
-* # [Electron 版本管理](https://electronjs.org/docs/tutorial/electron-versioning#electron-%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86) {#electron-版本管理}
+* # [Electron 版本管理](https://electronjs.org/docs/tutorial/electron-versioning#electron-版本管理) {#electron-版本管理}
 
   > 详细查看我们的版本控制策略和实现。
 
@@ -36,7 +34,9 @@
   npm install --save-dev electron@latest
   ```
 
-# [关于 Electron](https://electronjs.org/docs/tutorial/about#%E5%85%B3%E4%BA%8E-electron) {#关于-electron}
+# 构建前准备 {#关于-electron}
+
+构建electron应用依赖于nodeJs，所以我们在构建之前需要在本地安装nodeJs,下面介绍一下nodeJs的安装配置和使用
 
 
 
