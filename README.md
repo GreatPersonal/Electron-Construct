@@ -133,11 +133,9 @@ electron/resources/app
 ├── main.js
 ├── menu.js
 └── render.js
-
-main.js就是起动窗口的入口文件，Resources作为项目结构用前端框架时比如vue,react,angular,结构和外层的electron差不多，因为这几个
-框架也是基于nod开发的，当然这里也可以写普通的html+css+javascript,package.json是electron的配置项及依赖包，render.js是作为渲
-染进程，和web结构的路由一样，调用nodejs API还有事件的触发机制，都可以写在里面，main.js是主进程，根据项目的结构调整结构树。
 ```
+
+main.js就是起动窗口的入口文件，Resources作为项目结构用前端框架时比如vue,react,angular,结构和外层的electron差不多，因为这几个框架也是基于node开发的，当然这里也可以写普通的html+css+javascript,package.json是electron的配置项及依赖包，render.js是作为渲染进程，和web结构的路由一样，调用nodejs API还有事件的触发机制，都可以写在里面，main.js是主进程，根据项目的结构调整结构树,。
 
 ## ** 构建系统（用node调用chromium原生API完成构建）**
 
@@ -156,6 +154,44 @@ main.js就是起动窗口的入口文件，Resources作为项目结构用前端�
 * 您可以运行`npm run lint`来显示`cpplint`和`eslint`检测到的任何样式问题。
 
 ## [JavaScript](https://electronjs.org/docs/development/coding-style#javascript)
+* 也可以使用“use strict”,更好的将错误检测引入代码的方法。顾名思义，使得JS在更严格的条件下运行。举个例子：
+
+* ```
+  变量必须先声明，再使用
+  function test(){
+    "use strict";
+    foo = 'bar';  // Error
+  }
+ 
+  不能对变量执行delete操作
+  var foo = "test";
+  function test(){}
+ 
+  delete foo; // Error
+  delete test; // Error
+ 
+  function test2(arg) {
+      delete arg; // Error
+  }
+  对象的属性名不能重复
+  { foo: true, foo: false } // Error
+ 
+  禁用eval()
+ 
+  函数的arguments参数
+  setTimeout(function later(){
+    // do stuff...
+    setTimeout( later, 1000 );
+  }, 1000 );
+ 
+  禁用with(){}
+ 
+  不能修改arguments
+  不能在函数内定义arguments变量
+  不能使用arugment.caller和argument.callee。因此如果你要引用匿名函数，需要对匿名函数命名。
+  ```
+
+## [JavaScript](https://electronjs.org/docs/development/coding-style#javascript) {#javascript}
 
 * 书写[标准](http://npm.im/standard)JavaScript 样式
 * 文件名应使用`-`连接而不是`_`, 例如.`file-name.js`而不是`file_name.js`, 因为在[github/atom](https://github.com/github/atom)中模块名通常是`module-name`形式. 此规则仅适用于`.js`文件。
@@ -169,6 +205,7 @@ main.js就是起动窗口的入口文件，Resources作为项目结构用前端�
     代替`function () { }`
   * [Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
     而不是使用字符串连接符`+`
+
 
 ## [命名相关](https://electronjs.org/docs/development/coding-style#命名相关)
 
@@ -219,6 +256,7 @@ Electron API 使用与 Node.js 相同的大小写方案：
       └── common.gypi - 为诸如 `node` 和 `breakpad` 等其它
           组件准备的编译设置和构建规则.
 
+
 ## ![](/assets/diagram.png)
 
 ## [其它目录的结构](https://electronjs.org/docs/development/source-code-directory-structure#其它目录的结构)
@@ -237,6 +275,7 @@ Electron API 使用与 Node.js 相同的大小写方案：
   * 由脚本`script/create-dist.py`创建的临时发布目录.
 * **external\_binaries**
   * 下载的不支持通过`gyp`构建的预编译第三方框架.
+
 
 ## [让 Git 子模块保持最新](https://electronjs.org/docs/development/source-code-directory-structure#让-git-子模块保持最新)
 
