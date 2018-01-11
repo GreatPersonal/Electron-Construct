@@ -154,7 +154,8 @@ main.js就是起动窗口的入口文件，Resources作为项目结构用前端�
 * 您可以运行`npm run lint`来显示`cpplint`和`eslint`检测到的任何样式问题。
 
 ## [JavaScript](https://electronjs.org/docs/development/coding-style#javascript)
-* 也可以使用“use strict”,更好的将错误检测引入代码的方法。顾名思义，使得JS在更严格的条件下运行。举个例子：
+
+* 也可以使用“use strict”,"USE STRICT"是es5的严格模式，可以更好的将错误检测引入代码的方法。顾名思义，使得JS在更严格的条件下运行。举个例子：
 
 * ```
   变量必须先声明，再使用
@@ -162,30 +163,30 @@ main.js就是起动窗口的入口文件，Resources作为项目结构用前端�
     "use strict";
     foo = 'bar';  // Error
   }
- 
+
   不能对变量执行delete操作
   var foo = "test";
   function test(){}
- 
+
   delete foo; // Error
   delete test; // Error
- 
+
   function test2(arg) {
       delete arg; // Error
   }
   对象的属性名不能重复
   { foo: true, foo: false } // Error
- 
+
   禁用eval()
- 
+
   函数的arguments参数
   setTimeout(function later(){
     // do stuff...
     setTimeout( later, 1000 );
   }, 1000 );
- 
+
   禁用with(){}
- 
+
   不能修改arguments
   不能在函数内定义arguments变量
   不能使用arugment.caller和argument.callee。因此如果你要引用匿名函数，需要对匿名函数命名。
@@ -205,7 +206,6 @@ main.js就是起动窗口的入口文件，Resources作为项目结构用前端�
     代替`function () { }`
   * [Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
     而不是使用字符串连接符`+`
-
 
 ## [命名相关](https://electronjs.org/docs/development/coding-style#命名相关)
 
@@ -256,7 +256,6 @@ Electron API 使用与 Node.js 相同的大小写方案：
       └── common.gypi - 为诸如 `node` 和 `breakpad` 等其它
           组件准备的编译设置和构建规则.
 
-
 ## ![](/assets/diagram.png)
 
 ## [其它目录的结构](https://electronjs.org/docs/development/source-code-directory-structure#其它目录的结构)
@@ -275,7 +274,6 @@ Electron API 使用与 Node.js 相同的大小写方案：
   * 由脚本`script/create-dist.py`创建的临时发布目录.
 * **external\_binaries**
   * 下载的不支持通过`gyp`构建的预编译第三方框架.
-
 
 ## [让 Git 子模块保持最新](https://electronjs.org/docs/development/source-code-directory-structure#让-git-子模块保持最新)
 
@@ -356,3 +354,4 @@ jenkins持续集成、官方提供的api、electron-packger或者其他第三方
 electron详情、api文档请至官网查询：[https://electronjs.org/docs](https://electronjs.org/docs)
 
 W3C的教程更好理解一些：[https://www.w3cschool.cn/electronmanual/l52g1qyy.html](https://www.w3cschool.cn/electronmanual/l52g1qyy.html)
+
