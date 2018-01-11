@@ -266,31 +266,31 @@ git submodule update --init --recursive
 
 ## 构建目的
 
-*  快速集成，自动打包，热更新
+* 快速集成，自动打包，热更新
 
-*  electron本质就是Chrome浏览器的壳子，展示内容使用web框架,就是html+css+js
+* electron本质就是Chrome浏览器的壳子，展示内容使用web框架,就是html+css+js
 
 ## 构建工具
 
-       jenkins持续集成、官方提供的api、electron-packger或者其他第三方打包工具（这里打包的时候注意，坑很多，动不动就会报错，打包工具大家可以找找，这里举例用electron-packger，尽量把安装包压缩的小一点）、webpack
+jenkins持续集成、官方提供的api、electron-packger或者其他第三方打包工具（这里打包的时候注意，坑很多，动不动就会报错，打包工具大家可以找找，这里举例用electron-packger，尽量把安装包压缩的小一点）、webpack
 
 ## 构建方法
 
-*  使用sh命令在jenkins中ci构建
+* 使用sh命令在jenkins中ci构建
 
-*  create build.sh\\(所有构建方式通过build.sh\\)
+* create build.sh\\(所有构建方式通过build.sh\\)
 
-*  在package.json里的script里create npm construct运行build.sh\\(这个命令会配置在jenkins构建命令中\\),也可以直接使用
+* 在package.json里的script里create npm construct运行build.sh\\(这个命令会配置在jenkins构建命令中\\),也可以直接使用
 
 * 在构建之前请用yarn安装web项目的node依赖包，因为用npm会下载包的隐藏文件，打包时electron会把隐藏文件和没有依赖 的文件也打包起来，会让最后打包的文件很大，electron本身打的包已经很大了，操作时记住这一点
 
 ### 具体操作如下：
 
-*   项目构建时使用webpack/grunt或者其他打包工具（建议使用webpack）将前端web层打包
+* 项目构建时使用webpack/grunt或者其他打包工具（建议使用webpack）将前端web层打包
 
-*  electron应用层打包，electron支持多平台应用包打包，在package.json中配置打包命令，可以同时打包多个平台的应用包，这里使用electron-packager打包，打包配置中只打包web层打包好的dist，打包成功之后会在目录下生成一个out文件夹，里面放的就是打包好各平台的应用文件
+* electron应用层打包，electron支持多平台应用包打包，在package.json中配置打包命令，可以同时打包多个平台的应用包，这里使用electron-packager打包，打包配置中只打包web层打包好的dist，打包成功之后会在目录下生成一个out文件夹，里面放的就是打包好各平台的应用文件
 
-*  运行打包命令之前先清理构建文件
+* 运行打包命令之前先清理构建文件
 
 ```
              npm run clean
@@ -300,7 +300,7 @@ git submodule update --init --recursive
              npm run clean-build
 ```
 
-  \\*注意: 两个清理命令都需要在构建之前再次运行引导
+\\*注意: 两个清理命令都需要在构建之前再次运行引导
 
 #### 构建开始，构建信息在jenkins控制台输出中查看（Console Output）
 
