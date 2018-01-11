@@ -133,13 +133,11 @@ electron/resources/app
 ├── main.js
 ├── menu.js
 └── render.js
-
-main.js就是起动窗口的入口文件，Resources作为项目结构用前端框架时比如vue,react,angular,结构和外层的electron差不多，因为这几个
-框架也是基于nod开发的，当然这里也可以写普通的html+css+javascript,package.json是electron的配置项及依赖包，render.js是作为渲
-染进程，和web结构的路由一样，调用nodejs API还有事件的触发机制，都可以写在里面，main.js是主进程，根据项目的结构调整结构树。
 ```
 
-## ** 构建系统（用node调用chromium原生API完成构建）**
+main.js就是起动窗口的入口文件，Resources作为项目结构用前端框架时比如vue,react,angular,结构和外层的electron差不多，因为这几个框架也是基于node开发的，当然这里也可以写普通的html+css+javascript,package.json是electron的配置项及依赖包，render.js是作为渲染进程，和web结构的路由一样，调用nodejs API还有事件的触发机制，都可以写在里面，main.js是主进程，根据项目的结构调整结构树,。 
+
+## **构建系统（用node调用chromium原生API完成构建）**
 
 * 为了避免构建整个 Chromium 带来的复杂度，Electron 通过[`libchromiumcontent`](https://github.com/electron/libchromiumcontent)来访问 Chromium 的 Content API。`libchromiumcontent`是一个独立的、引入了 Chromium Content 模块及其所有依赖的共享库。 用户不需要一个强劲的机器来构建 Electron。
 
