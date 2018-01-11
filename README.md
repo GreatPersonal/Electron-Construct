@@ -135,7 +135,7 @@ electron/resources/app
 └── render.js
 ```
 
-main.js就是起动窗口的入口文件，Resources作为项目结构用前端框架时比如vue,react,angular,结构和外层的electron差不多，因为这几个框架也是基于node开发的，当然这里也可以写普通的html+css+javascript,package.json是electron的配置项及依赖包，render.js是作为渲染进程，和web结构的路由一样，调用nodejs API还有事件的触发机制，都可以写在里面，main.js是主进程，根据项目的结构调整结构树,。 
+main.js就是起动窗口的入口文件，Resources作为项目结构用前端框架时比如vue,react,angular,结构和外层的electron差不多，因为这几个框架也是基于node开发的，当然这里也可以写普通的html+css+javascript,package.json是electron的配置项及依赖包，render.js是作为渲染进程，和web结构的路由一样，调用nodejs API还有事件的触发机制，都可以写在里面，main.js是主进程，根据项目的结构调整结构树,。
 
 ## **构建系统（用node调用chromium原生API完成构建）**
 
@@ -152,6 +152,43 @@ main.js就是起动窗口的入口文件，Resources作为项目结构用前端�
 * 这些是 Electron 编码风格指南。
 
 * 您可以运行`npm run lint`来显示`cpplint`和`eslint`检测到的任何样式问题。
+
+* 也可以使用“use strict”,更好的将错误检测引入代码的方法。顾名思义，使得JS在更严格的条件下运行。举个例子：
+
+* ```
+  变量必须先声明，再使用
+  function test(){
+    "use strict";
+    foo = 'bar';  // Error
+  }
+ 
+  不能对变量执行delete操作
+  var foo = "test";
+  function test(){}
+ 
+  delete foo; // Error
+  delete test; // Error
+ 
+  function test2(arg) {
+      delete arg; // Error
+  }
+  对象的属性名不能重复
+  { foo: true, foo: false } // Error
+ 
+  禁用eval()
+ 
+  函数的arguments参数
+  setTimeout(function later(){
+    // do stuff...
+    setTimeout( later, 1000 );
+  }, 1000 );
+ 
+  禁用with(){}
+ 
+  不能修改arguments
+  不能在函数内定义arguments变量
+  不能使用arugment.caller和argument.callee。因此如果你要引用匿名函数，需要对匿名函数命名。
+  ```
 
 ## [JavaScript](https://electronjs.org/docs/development/coding-style#javascript) {#javascript}
 
