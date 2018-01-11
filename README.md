@@ -338,9 +338,7 @@ alias
                                 文档持续更新中………
 ```
 
-                                                                                       electron详情、api文档请至官网查询：[https://electronjs.org/docs](https://electronjs.org/docs)
+electron详情、api文档请至官网查询：[https://electronjs.org/docs](https://electronjs.org/docs)
 
-                                                     W3C的教程更好理解一些：[https://www.w3cschool.cn/electronmanual/l52g1qyy.html](https://www.w3cschool.cn/electronmanual/l52g1qyy.html)
-
-
+W3C的教程更好理解一些：[https://www.w3cschool.cn/electronmanual/l52g1qyy.html](https://www.w3cschool.cn/electronmanual/l52g1qyy.html)
 
