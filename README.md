@@ -2,7 +2,7 @@
 
 ---
 
-# [关于 Electron](https://electronjs.org/docs/tutorial/about#关于-electron) {#关于-electron}
+# [关于 Electron](https://electronjs.org/docs/tutorial/about#关于-electron)
 
 * [Electron](https://electronjs.org/)是由Github开发，用HTML，CSS和JavaScript来构建跨平台桌面应用程序的一个开源库。 Electron通过将[Chromium](https://www.chromium.org/Home)和[Node.js](https://nodejs.org/)合并到同一个运行时环境中，并将其打包为Mac，Windows和Linux系统下的应用来实现这一目的。
 
@@ -12,13 +12,13 @@
 
   继续往下阅读可以了解Electron的贡献者们和已经发布的版本，或者直接阅读官网的[快速开始指引](https://electronjs.org/docs/tutorial/quick-start)来开始用Electron来构建应用。
 
-## [核心理念](https://electronjs.org/docs/tutorial/about#核心理念) {#核心理念}
+## [核心理念](https://electronjs.org/docs/tutorial/about#核心理念)
 
 * 为了保持Electron的小 \(文件体积\) 和可持续性 \(依赖和API的扩展\) ，Electron限制了使用的核心项目的范围。比如Electron只用了Chromium的渲染库而不是全部。 这使得容易升级Chromium，但也意味着Electron缺少Google Chrome里的一些浏览器特性。
 
 * Electron所添加的的新特性应主要用于原生API。 如果一个特性能够成为一个Node.js模块，那它就应该成为。 参见[社区构建的Electron工具](https://electronjs.org/community)。
 
-# [Electron 版本管理](https://electronjs.org/docs/tutorial/electron-versioning#electron-版本管理) {#electron-版本管理}
+# [Electron 版本管理](https://electronjs.org/docs/tutorial/electron-versioning#electron-版本管理)
 
 > 详细查看我们的版本控制策略和实现。
 
@@ -129,7 +129,7 @@ electron/resources/app
 ├── package.json
 ├── ignore    
 ├── Resources
-|     └── index.html
+|   └── index.html
 ├── main.js
 ├── menu.js
 └── render.js
@@ -155,7 +155,7 @@ main.js就是起动窗口的入口文件，Resources作为项目结构用前端�
 
 * 您可以运行`npm run lint`来显示`cpplint`和`eslint`检测到的任何样式问题。
 
-## [JavaScript](https://electronjs.org/docs/development/coding-style#javascript) {#javascript}
+## [JavaScript](https://electronjs.org/docs/development/coding-style#javascript)
 
 * 书写[标准](http://npm.im/standard)JavaScript 样式
 * 文件名应使用`-`连接而不是`_`, 例如.`file-name.js`而不是`file_name.js`, 因为在[github/atom](https://github.com/github/atom)中模块名通常是`module-name`形式. 此规则仅适用于`.js`文件。
@@ -170,7 +170,7 @@ main.js就是起动窗口的入口文件，Resources作为项目结构用前端�
   * [Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
     而不是使用字符串连接符`+`
 
-## [命名相关](https://electronjs.org/docs/development/coding-style#命名相关) {#命名相关}
+## [命名相关](https://electronjs.org/docs/development/coding-style#命名相关)
 
 Electron API 使用与 Node.js 相同的大小写方案：
 
@@ -219,9 +219,9 @@ Electron API 使用与 Node.js 相同的大小写方案：
       └── common.gypi - 为诸如 `node` 和 `breakpad` 等其它
           组件准备的编译设置和构建规则.
 
-## ![](/assets/diagram.png) {#其它目录的结构}
+## ![](/assets/diagram.png)
 
-## [其它目录的结构](https://electronjs.org/docs/development/source-code-directory-structure#其它目录的结构) {#其它目录的结构}
+## [其它目录的结构](https://electronjs.org/docs/development/source-code-directory-structure#其它目录的结构)
 
 * **script**
   * 用于诸如构建、打包、测试等开发用途的脚本等.
@@ -238,7 +238,7 @@ Electron API 使用与 Node.js 相同的大小写方案：
 * **external\_binaries**
   * 下载的不支持通过`gyp`构建的预编译第三方框架.
 
-## [让 Git 子模块保持最新](https://electronjs.org/docs/development/source-code-directory-structure#让-git-子模块保持最新) {#让-git-子模块保持最新}
+## [让 Git 子模块保持最新](https://electronjs.org/docs/development/source-code-directory-structure#让-git-子模块保持最新)
 
 Electron信息库有一些被提供的依赖, 在[/vendor](https://github.com/electron/electron/tree/master/vendor)目录中可以找到. 运行`git status`时，偶尔会看到这样的消息：
 
@@ -317,4 +317,3 @@ jenkins持续集成、官方提供的api、electron-packger或者其他第三方
 electron详情、api文档请至官网查询：[https://electronjs.org/docs](https://electronjs.org/docs)
 
 W3C的教程更好理解一些：[https://www.w3cschool.cn/electronmanual/l52g1qyy.html](https://www.w3cschool.cn/electronmanual/l52g1qyy.html)
-
