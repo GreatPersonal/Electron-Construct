@@ -34,7 +34,7 @@ npm install --save-dev electron
 npm install --save-dev electron@latest
 ```
 
-# 构建前准备 {#关于-electron}
+# 构建前准备
 
 > 构建electron应用依赖于nodeJs，所以我们在构建之前需要在本地安装nodeJs.下面介绍一下nodeJs的安装配置和使用Node.js
 
