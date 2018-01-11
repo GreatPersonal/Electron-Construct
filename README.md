@@ -147,11 +147,7 @@ main.js就是起动窗口的入口文件，Resources作为项目结构用前端�
 
 * 在 Electron 中，通过各个平台的消息循环与 libuv 的循环集成，避免了直接在 Chromium 上做改动。 可以查看[`node_bindings`](https://github.com/electron/electron/tree/master/atom/common)
 
-  来了解这是如何完成的。
-
-  ```
-   当然有兴趣的也可以尝试chromium开发
-  ```
+  来了解这是如何完成的。当然有兴趣的也可以尝试chromium开发
 
 # [代码规范](https://electronjs.org/docs/development/coding-style#代码规范)
 
@@ -159,29 +155,29 @@ main.js就是起动窗口的入口文件，Resources作为项目结构用前端�
 
 * 您可以运行`npm run lint`来显示`cpplint`和`eslint`检测到的任何样式问题。
 
-* ## [JavaScript](https://electronjs.org/docs/development/coding-style#javascript) {#javascript}
+## [JavaScript](https://electronjs.org/docs/development/coding-style#javascript) {#javascript}
 
-  * 书写[标准](http://npm.im/standard)JavaScript 样式
-  * 文件名应使用`-`连接而不是`_`, 例如.`file-name.js`而不是`file_name.js`, 因为在[github/atom](https://github.com/github/atom)中模块名通常是`module-name`形式. 此规则仅适用于`.js`文件。
-  * 酌情使用更新的 ES6 / ES2015 语法
+* 书写[标准](http://npm.im/standard)JavaScript 样式
+* 文件名应使用`-`连接而不是`_`, 例如.`file-name.js`而不是`file_name.js`, 因为在[github/atom](https://github.com/github/atom)中模块名通常是`module-name`形式. 此规则仅适用于`.js`文件。
+* 酌情使用更新的 ES6 / ES2015 语法
 
-    * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const)
-      用于需要的和其他的常数
-    * [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let)
-      用于定义变量
-    * [Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
-      代替`function () { }`
-    * [Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
-      而不是使用字符串连接符`+`
+  * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const)
+    用于需要的和其他的常数
+  * [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let)
+    用于定义变量
+  * [Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
+    代替`function () { }`
+  * [Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
+    而不是使用字符串连接符`+`
 
-  ## [命名相关](https://electronjs.org/docs/development/coding-style#命名相关) {#命名相关}
+## [命名相关](https://electronjs.org/docs/development/coding-style#命名相关) {#命名相关}
 
-  Electron API 使用与 Node.js 相同的大小写方案：
+Electron API 使用与 Node.js 相同的大小写方案：
 
-  * 当模块本身是类时, 比如`BrowserWindow`, 使用`CamelCase`.
-  * 当模块是一组 API 时, 比如`globalShortcut`, 使用`mixedCase`.
-  * 当 API 是对象的属性时, 并且它复杂到足以成为一个单独的块, 比如`win.webContents`, 使用`mixedCase`.
-  * 对于其他非模块API, 使用自然标题, 比如`<webview> Tag`或`Process Object`.
+* 当模块本身是类时, 比如`BrowserWindow`, 使用`CamelCase`.
+* 当模块是一组 API 时, 比如`globalShortcut`, 使用`mixedCase`.
+* 当 API 是对象的属性时, 并且它复杂到足以成为一个单独的块, 比如`win.webContents`, 使用`mixedCase`.
+* 对于其他非模块API, 使用自然标题, 比如`<webview> Tag`或`Process Object`.
 
 当创建新的 API 时， 最好使用 getter 和 setter 而不是 jQuery 的一次性函数。 举个例子,`.getText()`和`.setText(text)`优于`.text([text])`. 理解语义化的重要性，这是一些相关的[讨论](https://github.com/electron/electron/issues/46)
 
@@ -247,11 +243,9 @@ main.js就是起动窗口的入口文件，Resources作为项目结构用前端�
 Electron信息库有一些被提供的依赖, 在[/vendor](https://github.com/electron/electron/tree/master/vendor)目录中可以找到. 运行`git status`时，偶尔会看到这样的消息：
 
 ```
-$ git status
-
+git status
     modified:   vendor/libchromiumcontent (new commits)
     modified:   vendor/node (new commits)
-复制
 ```
 
 要更新这些被提供的依赖关系，运行以下命令：
@@ -263,56 +257,40 @@ git submodule update --init --recursive
 如果觉得自己经常运行此命令, 你可以在`~/.gitconfig`文件中创建一个别名:
 
 ```
-[
-alias
-]
-    su = submodule update --init --recursive
+[alias]su = submodule update --init --recursive
 ```
 
 介绍了这么多的东西，开始进入题目内容了，利用jenkins-ci构建打包electrony应用程序：
 
 # 构建
 
-* ## 构建目的
+## 构建目的
 
-  ```
-       。快速集成，自动打包，热更新
+*  快速集成，自动打包，热更新
 
-       。electron本质就是Chrome浏览器的壳子，展示内容使用web框架,就是html+css+js
-  ```
-* ## 构建工具
+*  electron本质就是Chrome浏览器的壳子，展示内容使用web框架,就是html+css+js
 
-  ```
-         jenkins持续集成、官方提供的api、electron-packger或者其他第三方打包工具（这里打包的时候注意，坑很多，动不动就会报错，打包工具大
+## 构建工具
 
-         家可以找找，这里举例用electron-packger，尽量把安装包压缩的小一点）、webpack
-  ```
-* ## 构建方法
+       jenkins持续集成、官方提供的api、electron-packger或者其他第三方打包工具（这里打包的时候注意，坑很多，动不动就会报错，打包工具大家可以找找，这里举例用electron-packger，尽量把安装包压缩的小一点）、webpack
 
-  ```
-     。使用sh命令在jenkins中ci构建
+## 构建方法
 
-     。create build.sh\(所有构建方式通过build.sh\)
+*  使用sh命令在jenkins中ci构建
 
-     。在package.json里的script里create npm construct运行build.sh\(这个命令会配置在jenkins构建命令中\),也可以直接使用
+*  create build.sh\\(所有构建方式通过build.sh\\)
 
-     。在构建之前请用yarn安装web项目的node依赖包，因为用npm会下载包的隐藏文件，打包时electron会把隐藏文件和没有依赖
+*  在package.json里的script里create npm construct运行build.sh\\(这个命令会配置在jenkins构建命令中\\),也可以直接使用
 
-        的文件也打包起来，会让最后打包的文件很大，electron本身打的包已经很大了，操作时记住这一点
-  ```
-* ### 具体操作如下：
+* 在构建之前请用yarn安装web项目的node依赖包，因为用npm会下载包的隐藏文件，打包时electron会把隐藏文件和没有依赖 的文件也打包起来，会让最后打包的文件很大，electron本身打的包已经很大了，操作时记住这一点
 
-  ```
-       。项目构建时使用webpack/grunt或者其他打包工具（建议使用webpack）将前端web层打包
+### 具体操作如下：
 
-       。electron应用层打包，electron支持多平台应用包打包，在package.json中配置打包命令，可以同时打包多个平台的应用包，
+*   项目构建时使用webpack/grunt或者其他打包工具（建议使用webpack）将前端web层打包
 
-          这里使用electron-packager打包，打包配置中只打包web层打包好的dist，打包成功之后会在目录下生成一个out文件夹，里
+*  electron应用层打包，electron支持多平台应用包打包，在package.json中配置打包命令，可以同时打包多个平台的应用包，这里使用electron-packager打包，打包配置中只打包web层打包好的dist，打包成功之后会在目录下生成一个out文件夹，里面放的就是打包好各平台的应用文件
 
-          面放的就是打包好各平台的应用文件
-
-       。运行打包命令之前先清理构建文件
-  ```
+*  运行打包命令之前先清理构建文件
 
 ```
              npm run clean
@@ -322,9 +300,7 @@ alias
              npm run clean-build
 ```
 
-```
-        \*注意: 两个清理命令都需要在构建之前再次运行引导
-```
+  \\*注意: 两个清理命令都需要在构建之前再次运行引导
 
 #### 构建开始，构建信息在jenkins控制台输出中查看（Console Output）
 
@@ -335,7 +311,7 @@ alias
 # electron更新机制
 
 ```
-                                文档持续更新中………
+文档持续更新中………
 ```
 
 electron详情、api文档请至官网查询：[https://electronjs.org/docs](https://electronjs.org/docs)
